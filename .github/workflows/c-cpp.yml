@@ -15,6 +15,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: deps
       run: >
+        sudo touch /etc/apt/sources.list.d/ubuntu.sources &&
         sudo sed -i "s/^Types: deb$/Types: deb deb-src/" /etc/apt/sources.list.d/ubuntu.sources &&
         sudo add-apt-repository universe &&
         sudo apt-get update &&
