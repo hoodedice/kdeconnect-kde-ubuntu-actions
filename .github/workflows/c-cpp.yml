@@ -14,7 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: deps
-      run: sudo sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources && sudo add-apt-repository universe && sudo apt-get update && sudo apt-get build-dep kdeconnect
+      run: >
+        sudo sed -i "s/^Types: deb$/Types: deb deb-src/" /etc/apt/sources.list.d/ubuntu.sources &&
+        sudo add-apt-repository universe &&
+        sudo apt-get update &&
+        sudo apt-get build-dep kdeconnect
     - name: make
       working-directory: ..
       run: make
