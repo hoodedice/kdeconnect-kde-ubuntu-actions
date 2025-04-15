@@ -21,5 +21,4 @@ jobs:
         sudo apt-get update &&
         sudo apt-get build-dep kdeconnect
     - name: make
-      working-directory: ..
-      run: make
+      run: make ${{ github.workspace }}
